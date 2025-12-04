@@ -99,8 +99,8 @@ async def handle_image(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 
 def main() -> None:
-    TOKEN = os.getenv("TOKEN")
-
+    # TOKEN = os.getenv("TOKEN")
+    TOKEN = os.environ["TOKEN"]
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.PHOTO, handle_image))
