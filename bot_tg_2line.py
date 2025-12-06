@@ -51,6 +51,7 @@ async def handle_image(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
             pass
 
     image = Image.open(io.BytesIO(image_bytes))
+    image = image.convert("RGB")
     draw = ImageDraw.Draw(image)
 
 
@@ -99,8 +100,8 @@ async def handle_image(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 
 def main() -> None:
-    # TOKEN = os.getenv("TOKEN")
-    TOKEN = os.environ["TOKEN"]
+    TOKEN = os.getenv("TOKEN")
+
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.PHOTO, handle_image))
