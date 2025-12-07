@@ -49,8 +49,8 @@ Run in a container without installing Python dependencies.
 Build & Run:
     ```bash
 
-    docker build -t "DOCKER_IMG_NAME" .
-    docker run --name bot-test --env-file .env "DOCKER_IMG_NAME"
+    docker build -t tg-bot .
+    docker run --name bot-test --env-file .env tg-bot
     
     ```
 
